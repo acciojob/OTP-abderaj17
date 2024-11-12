@@ -1,5 +1,21 @@
 /*  your css code here. If applicable */
 .code-container{
 	display:flex;
-	align-items: center;
+    justify-content: center;
+    
+    gap: 10px;
+}
+.code{
+    width: 40px;;
+    height: 40px;
+    text-align: center;
+    font-size: 1.5em;
+}
+h1{
+    text-align:  center;
+    margin: 5px;
+}
+h4{
+    text-align: center;
+    
 }
