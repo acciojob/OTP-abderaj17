@@ -1,1 +1,5 @@
 /*  your css code here. If applicable */
+.code-container{
+	display:flex;
+	align-items: center;
+}
