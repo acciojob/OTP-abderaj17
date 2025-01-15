@@ -1,33 +1,33 @@
 document.addEventListener('DOMContentLoaded', () => {
   const inputs = document.querySelectorAll('.code');
 
+  const updateFocusClass = (input) => {
+      inputs.forEach((inp) => inp.classList.remove('focused'));
+      input.classList.add('focused');
+  };
+
   inputs.forEach((input, index) => {
       input.addEventListener('input', (e) => {
           const value = e.target.value;
           if (value && index < inputs.length - 1) {
-              input.classList.remove('focused'); // Remove 'focused' from the current input
-              inputs[index + 1].classList.add('focused'); // Add 'focused' to the next input
+              updateFocusClass(inputs[index + 1]);
               inputs[index + 1].focus();
           }
       });
 
-      input.addEventListener('focus', () => {
-          inputs.forEach(inp => inp.classList.remove('focused')); // Clear 'focused' from all inputs
-          input.classList.add('focused'); // Add 'focused' to the current input
-      });
+      input.addEventListener('focus', () => updateFocusClass(input));
 
       input.addEventListener('keydown', (e) => {
           if (e.key === 'Backspace') {
               if (!input.value && index > 0) {
-                  input.classList.remove('focused'); // Remove 'focused' from the current input
-                  inputs[index - 1].classList.add('focused'); // Add 'focused' to the previous input
+                  updateFocusClass(inputs[index - 1]);
                   inputs[index - 1].focus();
               }
           }
       });
   });
 
-  // Set the first input as focused on page load
-  inputs[0].classList.add('focused');
+  // Initialize focus on the first input
   inputs[0].focus();
+  updateFocusClass(inputs[0]);
 });
