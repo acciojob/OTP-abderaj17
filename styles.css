@@ -3,7 +3,7 @@
 	display:flex;
     justify-content: center;
     
-    gap: 10px;
+    gap: 10px; 
 }
 .code{
     width: 40px;;
